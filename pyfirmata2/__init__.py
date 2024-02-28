@@ -53,3 +53,29 @@ class ArduinoNano(Board):
 
     def __str__(self):
         return "Arduino Nano {0.name} on {0.sp.port}".format(self)
+
+
+class Esp32(Board):
+    """
+    A board that will set itself up as an Arduino Nano.
+    """
+    def __init__(self, *args, **kwargs):
+        args = list(args)
+        args.append(BOARDS['esp32'])
+        super(Esp32, self).__init__(*args, **kwargs)
+
+    def __str__(self):
+        return "esp32 {0.name} on {0.sp.port}".format(self)
+
+
+class Esp32s3(Board):
+    """
+    A board that will set itself up as an Arduino Nano.
+    """
+    def __init__(self, *args, **kwargs):
+        args = list(args)
+        args.append(BOARDS['esp32s3'])
+        super(Esp32s3, self).__init__(*args, **kwargs)
+
+    def __str__(self):
+        return "esp32-s3 {0.name} on {0.sp.port}".format(self)

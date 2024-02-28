@@ -26,5 +26,19 @@ BOARDS = {
         'pwm': (3, 5, 6, 9, 10, 11),
         'use_ports': True,
         'disabled': (0, 1)  # Rx, Tx, Crystal
-    }
+    },
+    'esp32': {
+        'digital': tuple(x for x in range(34)),
+        'analog': (0, 2, 4, 12, 13, 14, 15) + tuple(range(25, 34)),
+        'pwm': tuple(x for x in range(34)), # Need to test this
+        'use_ports': True,
+        'disabled': (1, 3, 32, 33) + tuple(range(6, 12)),  # uart(1,3) Crystal(32,33) flash
+    },
+    'esp32s3': {
+        'digital': tuple(x for x in range(49)),
+        'analog': tuple(x for x in range(1,21)),
+        'pwm': tuple(x for x in range(49)), # Need to test this
+        'use_ports': True,
+        'disabled': (15, 16, 19, 20, 43, 44) + tuple(range(26, 39))  # xtal(15,16) usb (19,20) psram (26 to 38) uart0 (43,44)
+    },
 }
